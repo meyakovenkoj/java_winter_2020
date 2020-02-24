@@ -35,15 +35,19 @@ public class Main {
     public static void main(String[] args) {
         int amount = 15;
         int[] input_array = generateArray(amount);
-        for (int a: input_array) {
-            System.out.print(a);
-            System.out.print(' ');
-        }
-        System.out.println();
-        replaceMinMax(input_array);
-        for (int a: input_array) {
-            System.out.print(a);
-            System.out.print(' ');
+        if (input_array != null) {
+            for (int a : input_array) {
+                System.out.print(a);
+                System.out.print(' ');
+            }
+            System.out.println();
+            replaceMinMax(input_array);
+            for (int a : input_array) {
+                System.out.print(a);
+                System.out.print(' ');
+            }
+        } else {
+            System.out.println("Null array");
         }
     }
 }
