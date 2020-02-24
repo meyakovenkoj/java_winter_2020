@@ -10,17 +10,17 @@ public class Main {
         if (bytes < 0){
             return "less than 0";
         }
-        String [] str_bytes = {"B", "KB", "MB", "GB", "TB", "PB", "EB"};
+        String [] strBytes = {"B", "KB", "MB", "GB", "TB", "PB", "EB"};
         String result;
         while(flbytes >= 1024){
             flbytes = flbytes / 1024;
             name++;
         }
-        if (name < str_bytes.length){
-            result = String.format("%.1f %s", flbytes, str_bytes[name]);
+        if (name < strBytes.length){
+            result = String.format("%.1f %s", flbytes, strBytes[name]);
         }
         else {
-            result = "WTF";
+            result = "Unknown error";
         }
         return result;
     }

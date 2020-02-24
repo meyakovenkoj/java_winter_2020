@@ -10,16 +10,16 @@ public class Main {
     }
 
     private static void replaceMinMax(int[] array){
-        int min = Integer.MAX_VALUE, max = Integer.MIN_VALUE, ind_max = 0, ind_min = 0, tmp, tmpmax;
+        int min = Integer.MAX_VALUE, max = Integer.MIN_VALUE, indMax = 0, indMin = 0, tmp, tmpmax;
 
         for (int i = 0; i < array.length; i++) {
             if (array[i] < min){
                 min = array[i];
-                ind_min = i;
+                indMin = i;
             }
             if (array[i] > max) {
                 max = array[i];
-                ind_max = i;
+                indMax = i;
             }
         }
 
@@ -27,24 +27,24 @@ public class Main {
         tmp = array[0];
 
         array[array.length - 1] = max;
-        array[ind_max] = tmpmax;
+        array[indMax] = tmpmax;
 
 
         array[0] = min;
-        array[ind_min] = tmp;
+        array[indMin] = tmp;
     }
 
     public static void main(String[] args) {
         int amount = 15;
-        int[] input_array = generateArray(amount);
-        if (input_array != null && input_array.length != 0) {
-            for (int a : input_array) {
+        int[] inputArray = generateArray(amount);
+        if (inputArray != null && inputArray.length != 0) {
+            for (int a : inputArray) {
                 System.out.print(a);
                 System.out.print(' ');
             }
             System.out.println();
-            replaceMinMax(input_array);
-            for (int a : input_array) {
+            replaceMinMax(inputArray);
+            for (int a : inputArray) {
                 System.out.print(a);
                 System.out.print(' ');
             }
