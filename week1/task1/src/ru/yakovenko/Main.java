@@ -10,7 +10,7 @@ public class Main {
     }
 
     private static void replaceMinMax(int[] array){
-        int min = Integer.MAX_VALUE, max = Integer.MIN_VALUE, ind_max = 0, ind_min = 0, tmp;
+        int min = Integer.MAX_VALUE, max = Integer.MIN_VALUE, ind_max = 0, ind_min = 0, tmp, tmpmax;
 
         for (int i = 0; i < array.length; i++) {
             if (array[i] < min){
@@ -23,11 +23,13 @@ public class Main {
             }
         }
 
-        tmp = array[array.length - 1];
-        array[array.length - 1] = max;
-        array[ind_max] = tmp;
-
+        tmpmax = array[array.length - 1];
         tmp = array[0];
+
+        array[array.length - 1] = max;
+        array[ind_max] = tmpmax;
+
+
         array[0] = min;
         array[ind_min] = tmp;
     }
@@ -35,7 +37,7 @@ public class Main {
     public static void main(String[] args) {
         int amount = 15;
         int[] input_array = generateArray(amount);
-        if (input_array != null) {
+        if (input_array != null && input_array.length != 0) {
             for (int a : input_array) {
                 System.out.print(a);
                 System.out.print(' ');
@@ -47,7 +49,7 @@ public class Main {
                 System.out.print(' ');
             }
         } else {
-            System.out.println("Null array");
+            System.out.println("Empty (or null) array");
         }
     }
 }
