@@ -35,7 +35,8 @@ public class Main {
 
     public static void main(String[] args) {
         int amount = 15;
-        int [] inputArray = new int[] {3,2, 1, 2};
+//        int [] inputArray = new int[] {3, 2, 1, 2};
+        int [] inputArray = generateArray(amount);
         if (inputArray != null && inputArray.length != 0) {
             for (int a : inputArray) {
                 System.out.print(a);
