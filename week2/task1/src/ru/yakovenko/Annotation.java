@@ -1,6 +1,6 @@
 package ru.yakovenko;
 
-import ru.yakovenko.Figures.Figure;
+import ru.yakovenko.figures.Figure;
 
 public class Annotation{
     private String name;
@@ -15,10 +15,8 @@ public class Annotation{
         return this.object;
     }
 
-    public void print(){
-        System.out.print("Name: ");
-        System.out.println(this.name);
-        this.object.print();
+    public String toString(){
+        return "Name: " + this.name + '\n' + this.object.toString();
     }
 
     public boolean checkPoint(int x, int y){

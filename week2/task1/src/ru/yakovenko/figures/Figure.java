@@ -1,11 +1,15 @@
-package ru.yakovenko.Figures;
+package ru.yakovenko.figures;
 
-public abstract class Figure{
+public abstract class Figure implements Moveable{
     Point [] points;
 
     public abstract boolean find(int x, int y);
 
-    public abstract void print();
+    public void move(int dx, int dy) {
+        for (Point point : this.points) {
+            point.update(dx, dy);
+        }
+    }
 
     public static class Point {
         int x;

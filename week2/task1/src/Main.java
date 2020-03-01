@@ -1,7 +1,7 @@
 import ru.yakovenko.Annotation;
-import ru.yakovenko.Figures.BoundingBox;
-import ru.yakovenko.Figures.Circle;
-import ru.yakovenko.Figures.Figure;
+import ru.yakovenko.figures.BoundingBox;
+import ru.yakovenko.figures.Circle;
+import ru.yakovenko.figures.Figure;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -45,8 +45,11 @@ public class Main{
         Figure obj;
         if (i == 0){
             obj = getCircle();
-        } else {
+        } else if (i == 1){
             obj = getBoundingBox();
+        } else {
+            System.out.println("Wrong parameter");
+            return list;
         }
         if (obj != null) {
             Annotation an = new Annotation(obj, "fig " + Integer.toString(list.length + 1));
@@ -98,21 +101,15 @@ public class Main{
                     int targetY = in.nextInt();
                     Annotation a = findByPoint(list, targetX, targetY);
                     if (a != null) {
-                        a.print();
-                        if (a.getFigure() instanceof Circle) {
-                            Circle cir = (Circle) a.getFigure();
-                            cir.move(x, y);
-                        } else {
-                            BoundingBox bb = (BoundingBox) a.getFigure();
-                            bb.move(x, y);
-                        }
+                        System.out.println(a);
+                        a.getFigure().move(x, y);
                     } else {
                         System.out.println("nothing");
                     }
                     break;
                 case 3:
                     for (Annotation each : list) {
-                        each.print();
+                        System.out.println(each);
                     }
                     break;
             }

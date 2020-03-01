@@ -1,6 +1,6 @@
-package ru.yakovenko.Figures;
+package ru.yakovenko.figures;
 
-public class BoundingBox extends Figure implements Moveable{
+public class BoundingBox extends Figure{
     public BoundingBox(int x1, int y1, int x2, int y2){
         this.points = new Point[2];
         this.points[0] = new Point();
@@ -17,13 +17,6 @@ public class BoundingBox extends Figure implements Moveable{
     }
 
     @Override
-    public void move(int dx, int dy) {
-        for (Point point : this.points) {
-            point.update(dx, dy);
-        }
-    }
-
-    @Override
     public boolean find(int x, int y) {
         if (x >= this.points[0].x && x <=this.points[1].x){
             return y >= this.points[0].y && y <= this.points[1].y;
@@ -32,10 +25,13 @@ public class BoundingBox extends Figure implements Moveable{
     }
 
     @Override
-    public void print() {
+    public String toString() {
+        StringBuilder points = new StringBuilder();
         for (Point a: this.points) {
-            System.out.println(a);
+            points.append(a.toString());
+            points.append('\n');
         }
+        return points.toString();
     }
 
 }

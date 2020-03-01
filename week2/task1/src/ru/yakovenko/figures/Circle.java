@@ -1,9 +1,6 @@
-package ru.yakovenko.Figures;
-import ru.yakovenko.Figures.Figure;
+package ru.yakovenko.figures;
 
-import static java.lang.Math.sqrt;
-
-public class Circle extends Figure implements Moveable{
+public class Circle extends Figure{
     private int radius;
 
     public Circle(int x, int y, int rad){
@@ -16,11 +13,6 @@ public class Circle extends Figure implements Moveable{
     }
 
     @Override
-    public void move(int dx, int dy) {
-        this.points[0].update(dx, dy);
-    }
-
-    @Override
     public boolean find(int x, int y) {
         int dx = x-this.points[0].x;
         int dy = y-this.points[0].y;
@@ -29,11 +21,12 @@ public class Circle extends Figure implements Moveable{
     }
 
     @Override
-    public void print() {
-        System.out.print("Radius: ");
-        System.out.println(this.radius);
+    public String toString() {
+        StringBuilder points = new StringBuilder();
         for (Point a: this.points) {
-            System.out.println(a);
+            points.append(a.toString());
+            points.append('\n');
         }
+        return "Radius: " + this.radius + '\n' + points.toString();
     }
 }
